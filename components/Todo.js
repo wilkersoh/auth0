@@ -24,7 +24,7 @@ export default function Todo({ todo }) {
         type='checkbox'
         name='completed'
         id='completed'
-        checked={todo.fields.completed}
+        checked={todo.fields.completed || ""}
         className='mr-2 form-checkbox h-5 w-5'
         onChange={onToggleCompleted}
       />

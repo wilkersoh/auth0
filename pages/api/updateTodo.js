@@ -1,6 +1,8 @@
 import { table, minifyRecords } from "./utils/Airtable";
+import auth0 from "./utils/auth0";
+import OwnsRecord from "./middleware/OwnsRecord";
 
-export default async (req, res) => {
+const handler = async (req, res) => {
   const { id, fields } = req.body;
 
   try {
@@ -15,3 +17,5 @@ export default async (req, res) => {
     res.json("Failed to updated.");
   }
 };
+
+export default OwnsRecord(handler);

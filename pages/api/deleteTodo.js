@@ -1,6 +1,7 @@
 import { table, minifyRecords } from "./utils/Airtable";
+import OwnsRecord from "./middleware/OwnsRecord";
 
-export default async (req, res) => {
+const handler = async (req, res) => {
   const { id } = req.body;
 
   try {
@@ -12,3 +13,5 @@ export default async (req, res) => {
     throw error;
   }
 };
+
+export default OwnsRecord(handler);

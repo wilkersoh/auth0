@@ -24,33 +24,13 @@ const TodosProvider = ({ children }) => {
       });
       const newTodo = await res.json();
       setTodos((prevTodos) => {
-        return [newTodo, ...prevTodos];
+        const updatedTodo = [newTodo, ...prevTodos];
+        return updatedTodo;
       });
     } catch (error) {
       throw error;
     }
   };
-
-  // const updateTodo = (updateTodo) => {
-  //   try {
-  //     await fetch("/api/updateTodo", {
-  //       method: "PUT",
-  //       body: JSON.stringify(updateTodo),
-  //       headers: { "Content-Type": "application/json" },
-  //     });
-  //     setTodos((prevTodos) => {
-  //       const existingTodos = [...prevTodos];
-  //       const getUpdateTodo = existingTodos.find(
-  //         (todo) => todo.id === updateTodo.id
-  //       );
-  //       getUpdateTodo.fields = updateTodo.fields;
-
-  //       return existingTodos;
-  //     });
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // };
 
   const updateTodo = (updateTodo) => {
     fetch("/api/updateTodo", {
@@ -70,8 +50,6 @@ const TodosProvider = ({ children }) => {
 
       return existingTodos;
     });
-
-    console.log("tried");
   };
 
   const deleteTodo = async (id) => {
