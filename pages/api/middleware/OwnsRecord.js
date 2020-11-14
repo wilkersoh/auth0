@@ -9,6 +9,9 @@ import { table } from "../utils/Airtable";
   2. Pass req and res from auth0 to handler function
   3. return handler()
   4. trigger handler()
+  它就和 HOC 一樣
+  handler = originalComponent
+  然後 這個 function 是 處理 originalComponent render前 讓有middleware的概念 才 去 render component
  */
 
 const OwnsRecord = (handler) =>
@@ -22,7 +25,7 @@ const OwnsRecord = (handler) =>
         res.statusCode = 404;
         return res.json({ msg: "Record not found" });
       }
-      req.record = existingRecord;
+      // req.record = existingRecord;
 
       return handler(req, res);
     } catch (error) {

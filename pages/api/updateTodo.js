@@ -1,5 +1,4 @@
 import { table, minifyRecords } from "./utils/Airtable";
-import auth0 from "./utils/auth0";
 import OwnsRecord from "./middleware/OwnsRecord";
 
 const handler = async (req, res) => {
