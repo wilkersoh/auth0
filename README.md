@@ -21,6 +21,7 @@ setup callback url and logout url in docs
 set guard for authorise user from auth0
 ```javascript
 auth0.requireAuthentication()
+
 ```
 
 # useContext
